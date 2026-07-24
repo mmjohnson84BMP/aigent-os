@@ -37,6 +37,18 @@ never creates. Assert this at soak: capsules land only in the canary's own vault
    The port-added pointer file `memory/runtime/last-capsule.json` goes STALE BY
    DESIGN from this moment and nothing may read it (resume = `newestValidCapsule()`
    scan; the 3/3-seat stale-pointer class dies here, rung 4).
+4b. **Fuel gauge — the SIXTH wiring the five-hook survey missed:** `statusLine` in
+   the same settings file currently runs the fleet-port sensor
+   (`~/pantheon/bin/statusline-ctx-sensor.sh`); repoint it to the fork's
+   `daemons/statusline-ctx.sh` in the same edit. The fork gauge writes the
+   `~/.claude/ctx-refresh/<session_id>.json` sensor contract, then DELEGATES the
+   visible line to `~/.claude/statusline-command.sh` (exists on this Mac — the
+   green→red ctx bar), so the operator-visible display is unchanged. This is the
+   brief's "visible fuel gauge": clear timing stays the seat's judgment, informed
+   by the bar. Kill-switch = the same settings restore (level 2); the gauge is
+   passive telemetry and cannot error the lifecycle by its own header contract.
+   Flip-day verify: ctx bar still renders on the first refresh AND the live sid's
+   sensor file appears under `~/.claude/ctx-refresh/` — read both, never infer.
 5. **Soak (DoD):** N full bank/clear/resume cycles, zero supervisor involvement;
    fault-injection fixture (kill mid-bank) recovers; capsules verified landing only
    in the canary vault; `[OPERATOR]`-sweep spot-check confirms the two branch fixes
